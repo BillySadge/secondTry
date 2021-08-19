@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-uq2o!l-2#(j+*1zu!@)=ti3b9vy)p-tx$^l9l!7&_=ekxiauir
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+]
+
 
 
 # Application definition
@@ -33,11 +35,16 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sessions',
     'django.contrib.contenttypes',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'playground',
-    'debug_toolbar',
+    'debug_toolbar', 
+    'store',
+    'store_custom',
+    'tags',
+    'likes'
 ]
 
 MIDDLEWARE = [
@@ -52,9 +59,7 @@ MIDDLEWARE = [
 ]
 
 INTERNAL_IPS = [
-    # ...
-    '127.0.0.1',
-    # ...
+    '127.0.0.1'
 ]
 
 
@@ -84,8 +89,11 @@ WSGI_APPLICATION = 'storefront.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'storefront',
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'ABC-abc.123'
     }
 }
 
@@ -132,3 +140,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
